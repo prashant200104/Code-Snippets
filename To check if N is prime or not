@@ -1,0 +1,20 @@
+/*
+This function will return the vector in which we can check:
+1. Prime number 
+2. smallest factor of that number 
+*/
+
+vector<int> listofprimes()
+{
+	int n = 1e5+5;
+	vector<int> checkprimee(n);
+	for(int i=0; i<n; i++) checkprimee[i]=i;
+
+	for (int p = 2; p < n; p++) {
+		if (checkprimee[p] != p)
+			continue;
+		for (int d = 2 * p; d < n; d += p)
+			checkprimee[d] = min(checkprimee[d], p);
+	}
+	return checkprimee;
+}
