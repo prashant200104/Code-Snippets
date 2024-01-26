@@ -1,0 +1,179 @@
+// {
+//  // Place your snippets for cpp here. Each snippet is defined under a snippet name and has a prefix, body and 
+//  // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+//  // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+//  // same ids are connected.
+//  // Example:
+//  // "Print to console": {
+//  //  "prefix": "log",
+//  //  "body": [
+//  //      "console.log('$1');",
+//  //      "$2"
+//  //  ],
+//  //  "description": "Log output to console"
+//  // }
+// }
+
+
+{
+    "C++ basic snippet": {
+    "prefix": "basic",
+    "body": [
+      "#include<bits/stdc++.h>",
+      "using namespace std;",
+      "#define int long long",
+      "#define pb push_back",
+      "#define mset(m,v) memset(m,v,sizeof(m))",
+      "#define dbg(var) cout<<#var<<\"=\"<<var<<\"\\n\";",
+      "#define nl cout<<\"\\n\";",
+      "typedef pair<int, int> pii;",
+      "typedef vector<pii> vpii;",
+      "typedef vector<int> vi;",
+      "#define f(x,a,b) for(int x=a;x<b;x++)"
+      "#define all(a) (a).begin(), (a).end()",
+      "#define yes cout<<\"YES\\n\"",
+      "#define no cout<<\"NO\\n\"",
+      "#define ff first",
+      "#define ss second",
+      "const int N=1e5+5;",
+      "",
+      "void solve()",
+      "{",
+    //   "  ",
+      "}",
+      "",
+      "signed main ()",
+    "{",
+    " ios_base::sync_with_stdio(0);",
+    " cin.tie(0);cout.tie(0);",
+    "",
+    " int t; cin>>t; while(t--)",
+    " solve();",
+    "}"
+    ],
+    "description": "C++ basic snipper"
+  }
+
+  "C++ advance snippet": {
+    "prefix": "advanced",
+    "body": [
+      "#include<bits/stdc++.h>",
+      "using namespace std;",
+      "#include<ext/pb_ds/assoc_container.hpp>",
+      "#include<ext/pb_ds/tree_policy.hpp>"
+      "using namespace __gnu_pbds;",
+      "typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update> pbds; // find_by_order, order_of_key ;",
+      "#define int long long",
+      "#define pr(...) dbs(#__VA_ARGS__, __VA_ARGS__)",
+      "template <class S, class T>ostream& operator <<(ostream& os, const pair<S, T>& p) {return os << \"(\" << p.first << \", \" << p.second << \")\";}",
+      "template <class T>ostream& operator <<(ostream& os, const vector<T>& p) {os << \"[ \"; for (auto& it : p) os << it << \" \"; return os << \"]\";}",
+      "template <class T>ostream& operator <<(ostream& os, const unordered_set<T>& p) {os << \"[ \"; for (auto& it : p) os << it << \" \"; return os << \"]\";}",
+      "template <class S, class T>ostream& operator <<(ostream& os, const unordered_map<S, T>& p) {os << \"[ \"; for (auto& it : p) os << it << \" \"; return os << \"]\";}",
+      "template <class T>ostream& operator <<(ostream& os, const set<T>& p) {os << \"[ \"; for (auto& it : p) os << it << \" \"; return os << \"]\";}",
+      "template <class T>ostream& operator <<(ostream& os, const multiset<T>& p) {os << \"[ \"; for (auto& it : p) os << it << \" \"; return os << \"]\";}",
+      "template <class S, class T>ostream& operator <<(ostream& os, const map<S, T>& p) {os << \"[ \"; for (auto& it : p) os << it << \" \"; return os << \"]\";}",
+      "template <class T> void dbs(string str, T t) {cerr << str << \" : \" << t << \"\\n\";}",
+      "#define ld long double",
+      "#define dbg(var) cout<<#var<<\"=\"<<var<<\"\\n\";",
+      "#define ss second",
+      "#define ff first",
+      "#define pb push_back",
+      "#define mset(m,v) memset(m,v,sizeof(m))",
+      "#define nl cout<<\"\\n\";",
+      "typedef pair<int, int> pii;",
+      "typedef vector<int> vi;",
+      "typedef vector<pii> vpii;",
+      "#define all(a) (a).begin(), (a).end()",
+      "#define f(x,a,b) for(int x=a;x<b;x++)",
+      "#define frev(x,a,b) for(int x=a;x>=b;x--)",
+      "#define yes cout<<\"YES\\n\"",
+      "#define no cout<<\"NO\\n\"",
+      "#define ff first",
+      "#define ss second",
+      "int mod =1e9+7;",
+      "",
+      "void dtb(int n)",
+      "{",
+      "    for(int i=30; i>=0; i--)",
+      "    {",
+      "        if((n>>i) & 1) cout<<1;",
+      "        else cout<<0;",
+      "    }",
+      "    cout << \"\\n\";",
+      "}"
+      "",
+      "int lsb(int n)",
+      "{",
+      "    int ind=0;",
+      "    for(int i=0; i<30; i++)",
+      "    {",
+      "        if(1 & (n>>i)) {ind=i; break;}",
+      "    }",
+      "    return ind;",
+      "}"
+      "",
+      "int binpow(int a, int b)",
+      "{",
+      "    if (b == 0)",
+      "        return 1;",
+      "    int res = binpow(a, b / 2);",
+      "    res=(res*res)%mod;",
+      "    if (b % 2)",
+      "        return (res * a)%mod;",
+      "    return res%mod;",
+      "}"
+      "",
+      "void solve()",
+      "{",
+    //   " ",
+      "}",
+      "",
+      "signed main ()",
+    "{",
+    " ios_base::sync_with_stdio(0);",
+    " cin.tie(0);cout.tie(0);",
+    "",
+    " int t; cin>>t; while(t--)",
+    " solve();",
+    "}"
+    ],
+    "description": "C++ advance snippet"
+  }
+
+
+  "C++ DP snippet": {
+    "prefix": "dp",
+    "body": [
+      "#include <bits/stdc++.h>",
+      "using namespace std;",
+      "#define int long long",
+      "#define f(x,a,b) for(int x=a;x<b;x++)"
+      "typedef vector<int> vi;",
+      "#define nl cout<<\"\\n\";",
+      "",
+      "int rec()   //states and what to return",
+      "{",
+      "    //pruning",
+      "    //base case check",
+      "    //cache check",
+      "    //transition code",
+      "    //save and return",
+      "}",
+      "",
+      "void solve()",
+      "{",
+    //   "   ",
+      "}",
+      "",
+      "signed main ()",
+    "{",
+    " ios_base::sync_with_stdio(0);",
+    " cin.tie(0);cout.tie(0);",
+    "",
+    " int t; cin>>t; while(t--)",
+    " solve();",
+    "}"
+    ],
+    "description": "C++ DP snippet"
+  }
+}
