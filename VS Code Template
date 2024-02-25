@@ -140,6 +140,21 @@
     "description": "C++ advance snippet"
   }
 
+  "DEBUG": {
+    "prefix": "debug",
+    "body": [
+      "#define pr(...) dbs(#__VA_ARGS__, __VA_ARGS__)",
+      "template <class S, class T>ostream& operator <<(ostream& os, const pair<S, T>& p) {return os << \"(\" << p.first << \", \" << p.second << \")\";}",
+      "template <class T>ostream& operator <<(ostream& os, const vector<T>& p) {os << \"[ \"; for (auto& it : p) os << it << \" \"; return os << \"]\";}",
+      "template <class T>ostream& operator <<(ostream& os, const unordered_set<T>& p) {os << \"[ \"; for (auto& it : p) os << it << \" \"; return os << \"]\";}",
+      "template <class S, class T>ostream& operator <<(ostream& os, const unordered_map<S, T>& p) {os << \"[ \"; for (auto& it : p) os << it << \" \"; return os << \"]\";}",
+      "template <class T>ostream& operator <<(ostream& os, const set<T>& p) {os << \"[ \"; for (auto& it : p) os << it << \" \"; return os << \"]\";}",
+      "template <class T>ostream& operator <<(ostream& os, const multiset<T>& p) {os << \"[ \"; for (auto& it : p) os << it << \" \"; return os << \"]\";}",
+      "template <class S, class T>ostream& operator <<(ostream& os, const map<S, T>& p) {os << \"[ \"; for (auto& it : p) os << it << \" \"; return os << \"]\";}",
+      "template <class T> void dbs(string str, T t) {cerr << str << \" : \" << t << \"\\n\";}",
+    ],
+    "description": "debug"
+  }
 
   "C++ DP snippet": {
     "prefix": "dp",
