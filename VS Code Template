@@ -92,14 +92,16 @@
       "#define ss second",
       "int mod =1e9+7;",
       "",
-      "void dtb(int n)",
+      
+      "string dtb(int n)",
       "{",
-      "    for(int i=30; i>=0; i--)",
+      "    string s = \"\";",
+      "    for(int i=62; i>=0; i--)",
       "    {",
-      "        if((n>>i) & 1) cout<<1;",
-      "        else cout<<0;",
+      "        if((n>>i) & 1) s += '1';",
+      "        else s += '0';",
       "    }",
-      "    cout << \"\\n\";",
+      "    return s;",
       "}"
       "",
       "int lsb(int n)",
@@ -201,5 +203,28 @@
     "}"
     ],
     "description": "C++ DP snippet"
+  }
+
+  "Print Segment Tree": {
+    "prefix": "print_segment_tree",
+    "body": [
+      "// print_segment_tree",
+      "void print_tree(vector<int> new_tree)",
+      "{",
+      "    int qqq = 50;",
+      "    vi gap(qqq,0);",
+      "    f(i,0,qqq) gap[i] = (1<<i);",
+      "    f(i,1,qqq) gap[i] += gap[i-1];",
+      "    int j=0,p=0;",
+      "    for(int i=1; i<new_tree.size(); i++)",
+      "    {",
+      "        if(p==0) { for(int la=0; la<(n-i+1)/2; la++) cout<<\" \"; p=1; }",
+      "        cout<<tr[i]<<\" \";",
+      "        if(gap[j]==i){j++; nl;p=0;}",
+      "    }",
+      "    nl;",
+      "}"
+    ],
+    "description": "Print Segment Tree"
   }
 }
