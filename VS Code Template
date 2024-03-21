@@ -205,25 +205,13 @@
     "description": "C++ DP snippet"
   }
 
-  "Print Segment Tree": {
-    "prefix": "print_segment_tree",
+  "Print Segment Tree_Format": {
+    "prefix": "seg_tree",
     "body": [
-      "// print_segment_tree",
-      "void print_tree(vector<int> new_tree)",
-      "{",
-      "    int qqq = 50;",
-      "    vi gap(qqq,0);",
-      "    f(i,0,qqq) gap[i] = (1<<i);",
-      "    f(i,1,qqq) gap[i] += gap[i-1];",
-      "    int j=0,p=0;",
-      "    for(int i=1; i<new_tree.size(); i++)",
-      "    {",
-      "        if(p==0) { for(int la=0; la<(n-i+1)/2; la++) cout<<\" \"; p=1; }",
-      "        cout<<tr[i]<<\" \";",
-      "        if(gap[j]==i){j++; nl;p=0;}",
-      "    }",
-      "    nl;",
-      "}"
+      "// merge",
+      "// build",
+      "// update",
+      "// query",
     ],
     "description": "Print Segment Tree"
   }
