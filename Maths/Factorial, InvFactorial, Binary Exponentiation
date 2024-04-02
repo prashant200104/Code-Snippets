@@ -1,0 +1,56 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define int long long
+#define pb push_back
+#define mset(m,v) memset(m,v,sizeof(m))
+#define dbg(var) cout<<#var<<"="<<var<<"\n";
+#define nl cout<<"\n";
+typedef pair<int, int> pii;
+typedef vector<pii> vpii;
+typedef vector<int> vi;
+#define f(x,a,b) for(int x=a;x<b;x++)
+#define all(a) (a).begin(), (a).end()
+#define yes cout<<"YES\n"
+#define no cout<<"NO\n"
+#define ff first
+#define ss second
+const int N=2e6+10;
+const int mod=1e9+7;
+
+int binpow(int a, int b)
+{
+    if (b == 0)
+        return 1;
+    int res = binpow(a, b / 2);
+    res=(res*res)%mod;
+    if (b % 2)
+        return (res * a)%mod;
+    return res%mod;
+}
+
+vi fact(N), invfact(N);
+
+void solve()
+{
+    int n;
+    cin>>n;
+
+}
+
+signed main ()
+{
+ ios_base::sync_with_stdio(0);
+ cin.tie(0);cout.tie(0);
+
+ fact[0]=1;
+ invfact[0]=1;
+
+ for(int i=1; i<N; i++)
+ {
+    fact[i] = ((fact[i-1])%mod * i)%mod;
+    invfact[i] = (binpow(fact[i], mod-2) + mod)%mod;
+ }
+
+//  int t; cin>>t; while(t--)
+ solve();
+}
