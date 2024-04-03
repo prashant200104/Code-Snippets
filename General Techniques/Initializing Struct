@@ -1,4 +1,4 @@
 struct ST{
-    int even, odd;
-    ST(int even=0, int odd=0): even(even), odd(odd) {}
+    int prefix, total, suffix, mxsumsub;
+    ST(int prefix=0, int total=0, int suffix=0, int mxsumsub=0): prefix(prefix), total(total), suffix(suffix), mxsumsub(mxsumsub) {}
 };
