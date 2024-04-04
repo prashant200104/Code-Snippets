@@ -1,0 +1,52 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+#define ll long long int
+const int N = 200100;
+
+int n, m;
+vector <vector<int>> g;
+vector<int>col;
+vector <bool> vis;
+
+bool is_bip=1;
+void color(int node,int curr) {
+    if(col[node]!=-1 &&col[node]!=curr){
+        is_bip=0;
+        return;
+    }
+    col[node]=curr;
+    if(vis[node]){
+        return;
+    }
+    vis[node]=1;
+    for(auto v:g[node]){
+        color(v,1^curr);
+    }
+}
+
+signed main()
+{
+    ios_base::sync_with_stdio(0);
+    cin.tie(0); cout.tie(0);
+    cin >>n >> m;
+    g.resize(n+1);
+    col.assign(n+1,-1);
+    vis.assign(n+1,0);
+    for(int i=0;i<m;i++){
+        int a,b;
+        cin>>a>>b;
+        g[a].push_back(b);
+        g[b].push_back(a);
+    }
+    for(int i=1;i<=n;i++){
+        if(!vis[i])
+            color(i,0);
+    }
+    if(is_bip)
+        cout<<"YES"<<'\n';
+    else
+        cout<<"NO"<<'\n';
+
+    return 0;
+}
