@@ -1,0 +1,77 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define int long long
+#define pb push_back
+#define mset(m,v) memset(m,v,sizeof(m))
+#define dbg(var) cout<<#var<<"="<<var<<"\n";
+#define nl cout<<"\n";
+typedef pair<int, int> pii;
+typedef vector<pii> vpii;
+typedef vector<int> vi;
+#define f(x,a,b) for(int x=a;x<b;x++)
+#define all(a) (a).begin(), (a).end()
+#define yes cout<<"YES\n"
+#define no cout<<"NO\n"
+#define ff first
+#define ss second
+const int N=1e5+5;
+
+int n,m;
+vector<vpii> g;
+vi dist,vis;
+
+void dijkstra(){
+    priority_queue<pii> pq;
+    int st=1;
+    pq.push({-0,st});
+    dist[st]=0;
+    while(!pq.empty()){
+        int x=pq.top().ss;
+        int w=-pq.top().ff;
+        pq.pop();
+
+        if(vis[x]) continue;
+        vis[x]=1;
+        for(auto it:g[x]){
+            int v=it.ff;
+            int c=it.ss;
+            if(dist[v]>dist[x]+c){   //relaxing condition
+                dist[v]=dist[x]+c;
+                pq.push({-dist[v],v});
+            }
+        }
+    }
+
+}
+void solve(){
+    int n,m;
+    cin>>n>>m;
+
+    g.resize(n+1);
+    dist.resize(n+1);
+    vis.assign(n+1,0);
+
+    for(int i=0;i<m;i++){
+        int a,b,c;
+        cin>>a>>b>>c;
+        g[a].pb({b,c});
+        g[b].pb({a,c});
+    }
+    for(int i=1;i<=n;i++){
+        dist[i]=1e18;
+    }
+
+    dijkstra();
+
+    for(int i=1;i<=n;i++){
+        cout<<dist[i]<<" ";
+    }
+}
+
+signed main (){
+ ios_base::sync_with_stdio(0);
+ cin.tie(0);cout.tie(0);
+
+//  int t; cin>>t; while(t--)
+ solve();
+}
