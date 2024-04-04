@@ -1,0 +1,113 @@
+#include<bits/stdc++.h>
+using namespace std;
+#define int long long
+#define ll long long int
+//
+//const int N = 200100;
+//
+//int mod = 1e9 + 7;
+//
+//bool grid[N][N];
+//bool visited[N][N];
+int n;
+vector <vector<int>> g;
+vector<int>col;
+//int dx[4] = {-1, 1, 0, 0};
+//int dy[4] = {0, 0, -1, 1};
+
+//bool inside(int x, int y) {
+//    if(x < 0 || x >= n || y < 0 || y >= m) return 0;
+//    return 1;
+//}
+//bool is_cycle=0;
+//void dfs(int node) {
+//    col[node]=2;
+//    for(auto v:g[node]){
+//        if(col[v]==1){
+//            dfs(v);
+//        }
+//        else if(col[v]==3){
+//            is_cycle=1;
+//        }
+//    }
+//    col[node]=3;
+//}
+//vector<int> topo;
+//vector<int> indeg;
+//void bfs(int node){
+//queue <int> q;
+//
+//}
+//void kahn(){
+//priority_queue<int>q;
+//for(int i=1;i<=n;i++){
+//    if(indeg[i]==0)
+//        q.push(-1*i);}
+//    while(!q.empty()){
+//        int cur=-1LL*q.top();
+//        q.pop();
+//        topo.push_back(cur);
+//        for(auto v:g[cur]){
+//            indeg[v]--;
+//            if(indeg[v]==0){
+//                q.push(-1*v);
+//            }
+//        }
+//    }
+//}
+signed main()
+{
+    ios_base::sync_with_stdio(0);
+    cin.tie(0); cout.tie(0);
+    cin >>n;
+    g.resize(n+1);
+    col.assign(n+1,-1);
+    //indeg.assign(n+1,0);
+
+    for(int i=0;i<n-1;i++){
+        int a,b;
+        cin>>a>>b;
+        g[a].push_back(b);
+        g[b].push_back(a);
+       //indeg[b]++;
+    }
+    int d=0;
+    for(auto v: g){
+        //cout<<v.size()<<'\n';
+        d=max(d,(long long)v.size());
+    }
+    cout<<d+1<<'\n';
+//    for(int i=1;i<=n;i++){
+//        if(col[i]==1)
+//            dfs(i);
+//    }
+//    kahn();
+
+//    if(is_cycle)
+//        cout<<"Yes"<<'\n';
+//    else
+//        cout<<"No"<<'\n';
+
+//    for(int i = 0; i < n; i++) {
+//        string s; cin >> s;
+//        for(int j = 0; j < (int)s.length(); j++) {
+//            if(s[j] == '#') grid[i][j] = 0;
+//            else grid[i][j] = 1;
+//        }
+//    }
+//memset(visited,0,sizeof(visited));
+////for(int i=0;i<n;i++)for(int j=0;j<m;j++)visited[i][j]=0;
+//
+//    int ans = 0;
+//    for(int i = 0; i < n; i++) {
+//        for(int j = 0; j < m; j++) {
+//            if(!visited[i][j] && grid[i][j]) {
+//                dfs(i, j);
+//                ans++;
+//            }
+//        }
+//    }
+//
+//    cout << ans << "\n";
+    return 0;
+}
