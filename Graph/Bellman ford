@@ -4,35 +4,33 @@
 
 using namespace std;
 
-struct Edge {
-    int source, destination, weight;
-};
-
-void bellmanFord(int V, int E, vector<Edge>& edges, int start) {
+void bellmanFord(int V, vector<vector<pair<int, int>>> &graph, int start) {
     // Step 1: Initialize distances from start to all other vertices as INFINITE
     vector<int> dist(V, INT_MAX);
     dist[start] = 0;
 
     // Step 2: Relax all edges V-1 times
     for (int i = 1; i <= V - 1; i++) {
-        for (int j = 0; j < E; j++) {
-            int u = edges[j].source;
-            int v = edges[j].destination;
-            int weight = edges[j].weight;
-            if (dist[u] != INT_MAX && dist[u] + weight < dist[v]) {
-                dist[v] = dist[u] + weight;
+        for (int u = 0; u < V; u++) {
+            for (auto edge : graph[u]) {
+                int v = edge.first;    // destination vertex
+                int weight = edge.second; // weight of the edge
+                if (dist[u] != INT_MAX && dist[u] + weight < dist[v]) {
+                    dist[v] = dist[u] + weight;
+                }
             }
         }
     }
 
     // Step 3: Check for negative-weight cycles
-    for (int i = 0; i < E; i++) {
-        int u = edges[i].source;
-        int v = edges[i].destination;
-        int weight = edges[i].weight;
-        if (dist[u] != INT_MAX && dist[u] + weight < dist[v]) {
-            cout << "Graph contains negative weight cycle" << endl;
-            return; // If negative cycle is found, stop
+    for (int u = 0; u < V; u++) {
+        for (auto edge : graph[u]) {
+            int v = edge.first;
+            int weight = edge.second;
+            if (dist[u] != INT_MAX && dist[u] + weight < dist[v]) {
+                cout << "Graph contains negative weight cycle" << endl;
+                return; // If negative cycle is found, stop
+            }
         }
     }
 
@@ -48,20 +46,23 @@ void bellmanFord(int V, int E, vector<Edge>& edges, int start) {
 
 int main() {
     int V = 5; // Number of vertices in graph
-    int E = 8; // Number of edges in graph
-    vector<Edge> edges = {
-        {0, 1, -1},
-        {0, 2, 4},
-        {1, 2, 3},
-        {1, 3, 2},
-        {1, 4, 2},
-        {3, 2, 5},
-        {3, 1, 1},
-        {4, 3, -3}
-    };
+
+    // Graph adjacency list representation where g[u] contains pairs {v, w}
+    // representing an edge from u to v with weight w
+    vector<vector<pair<int, int>>> graph(V);
+
+    // Adding edges to the graph (u -> v with weight w)
+    graph[0].push_back({1, -1});
+    graph[0].push_back({2, 4});
+    graph[1].push_back({2, 3});
+    graph[1].push_back({3, 2});
+    graph[1].push_back({4, 2});
+    graph[3].push_back({2, 5});
+    graph[3].push_back({1, 1});
+    graph[4].push_back({3, -3});
 
     int start = 0; // Starting vertex
-    bellmanFord(V, E, edges, start);
+    bellmanFord(V, graph, start);
 
     return 0;
 }
